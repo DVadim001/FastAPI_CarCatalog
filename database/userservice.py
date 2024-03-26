@@ -57,6 +57,7 @@ def edit_user_info_db(user_id, edited_field, new_value):
         elif edited_field == "password":
             user.password = new_value
         db.commit()
+        return "Успешно изменено"
     else:
         return "Пользователь не найден"
 

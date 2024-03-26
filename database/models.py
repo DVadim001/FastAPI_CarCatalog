@@ -19,6 +19,7 @@ class User(Base):
 class Car(Base):
     __tablename__ = "cars"
     car_id = Column(Integer, autoincrement=True, primary_key=True)
+    user_id = Column(Integer, ForeignKey("users.user_id"))
     model = Column(String)
     year = Column(Integer)
     price = Column(Float)
@@ -31,6 +32,7 @@ class Car(Base):
 
     # Добавление связи с комментариями
     comments = relationship("Comment", back_populates='car')
+    user = relationship("User")
 
 
 # Модель отзывов

@@ -39,8 +39,8 @@ async def get_car_comments(car_id):
 
 # Удалить комментарий
 @comment_router.delete("/delete")
-async def delete_comment(comment_id, user_id):
-    result = delete_comment_db(comment_id, user_id)
+async def delete_comment(comment_id):
+    result = delete_comment_db(comment_id)
     if result:
         return {'message': result}
     else:

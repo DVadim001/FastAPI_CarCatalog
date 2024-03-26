@@ -42,9 +42,9 @@ def get_car_comments_db(car_id):
 
 
 # Удалить комментарий
-def delete_comment_db(comment_id, user_id):
+def delete_comment_db(comment_id):
     db = next(get_db())
-    comment = db.query(Comment).filter_by(comment_id=comment_id, user_id=user_id).first()
+    comment = db.query(Comment).filter_by(comment_id=comment_id).first()
     if comment:
         db.delete(comment)
         db.commit()
